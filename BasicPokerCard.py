@@ -17,6 +17,9 @@ class CardValue:
     QUEEN = "Q"
     KING = "K"
 
+    """ Customizable order depen"""
+    STRENGTH_ORDER = [TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE]
+
 
 class CardSuit:
     SPADE = "\u2664"
@@ -50,7 +53,9 @@ class Deck:
     
     def __str__(self) -> str:
         string = "Number of Cards In Deck: " + str(self.length) + "\nOrder:\n"
-        for i in 
+        for i in range(self.length):
+            string += str(self.deck[i]) + "\n"
+        return string
     
     def draw_card(self) -> Card:
         if self.length > 0:
@@ -67,8 +72,7 @@ class Deck:
 
 if __name__ == "__main__":
     deck = Deck()
-    while deck.length > 0:
-        print(deck.draw_card())
+    print(deck)
     
 
     
